@@ -2,6 +2,7 @@ package org.usfirst.frc5577.GearsBot;
 
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -12,9 +13,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc5577.GearsBot.commands.*;
 import org.usfirst.frc5577.GearsBot.subsystems.*;
-
-import com.analog.frc.ADIS16448_IMU;
-import com.analog.frc.ADXRS453Gyro;
 
 public class Robot extends TimedRobot {
 
@@ -27,8 +25,8 @@ public class Robot extends TimedRobot {
     public static DriveTrain driveTrain;
     public static Intake intake;
     public static Climber climber;
-    public static ADIS16448_IMU imu;
-    public static ADXRS453Gyro gyro;
+    // TODO: Replace with gyro code for 2019
+    public static AnalogGyro gyro;
     public static Pneumatics pneumatics;
     public static Lift lift;
     
@@ -48,8 +46,7 @@ public class Robot extends TimedRobot {
         driveTrain = new DriveTrain();
         intake = new Intake();
         climber = new Climber();
-        imu = new ADIS16448_IMU();
-        gyro = new ADXRS453Gyro();
+        gyro = new AnalogGyro(0);
         pneumatics = new Pneumatics();
         lift = new Lift();
 
@@ -136,7 +133,6 @@ public class Robot extends TimedRobot {
     
     public void operatorControl() {
 		while(isOperatorControl() && isEnabled()) {
-			SmartDashboard.putData("IMU", imu);
 			Timer.delay(0.005);				// wait for a motor update time
 		}
     }

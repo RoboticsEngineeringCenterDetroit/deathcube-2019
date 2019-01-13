@@ -12,9 +12,7 @@ public class Turn extends Command {
 	public Turn(double turnValue) {
       requires(Robot.driveTrain);
       
-      this.turnValue = turnValue;
-
-//      setTimeout(1); //Or change back to 5 if something goes wrong       
+      this.turnValue = turnValue;     
       }
 	
 	public Turn(int degrees) {
@@ -25,7 +23,7 @@ public class Turn extends Command {
 	}
 	
 	protected void initialize() {
-		Robot.imu.reset();
+		Robot.gyro.reset();
 	}
 
 	protected void execute() {
@@ -40,12 +38,12 @@ public class Turn extends Command {
 
     protected void end() {
     	System.out.println("Turning has ended!");
-    	Robot.imu.reset();
+    	Robot.gyro.reset();
     	Robot.driveTrain.stop(); 
     }
     
     private double getAngleOfRotation() {
-    	return Robot.imu.getAngleX();
+    	return Robot.gyro.getAngle();
     }
 	
 }
