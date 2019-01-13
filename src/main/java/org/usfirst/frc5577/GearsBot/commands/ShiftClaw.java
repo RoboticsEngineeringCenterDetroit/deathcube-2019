@@ -8,25 +8,26 @@ public class ShiftClaw extends Command {
 
 	private boolean initialClawState;
 	private double time = 0.5;
-	
+
 	public ShiftClaw() {
 		requires(Robot.pneumatics);
-		
 	}
+
 	protected void initialize() {
 		setTimeout(time);
-	  	initialClawState = Robot.pneumatics.isClawOpen(); 
-	  }
+		initialClawState = Robot.pneumatics.isClawOpen();
+	}
 
 	@Override
 	protected boolean isFinished() {
 		return isTimedOut();
 	}
-	 // Called once after isFinished returns true
-	  protected void end() {	  	
-//	  	Robot.pneumatics.stop();
-	  	}
-	  
+
+	// Called once after isFinished returns true
+	protected void end() {
+		// Robot.pneumatics.stop();
+	}
+
 	protected void execute() {
 		if (initialClawState == Robot.pneumatics.isClawOpen()) {
 			Robot.pneumatics.shiftClaw();

@@ -5,9 +5,9 @@ import org.usfirst.frc5577.GearsBot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class DownLift extends Command {
-	
+
 	private double speed = 0;
-	
+
 	public DownLift(double speed) {
 		requires(Robot.lift);
 		this.speed = speed;

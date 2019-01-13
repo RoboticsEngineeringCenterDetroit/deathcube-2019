@@ -3,8 +3,8 @@ package org.usfirst.frc5577.GearsBot.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutonShootCube extends CommandGroup {
-	public AutonShootCube () {
+	public AutonShootCube() {
 		addParallel(new ShiftClaw());
-//		addSequential(new PlaceCube(0.8, 0.5));
+		// addSequential(new PlaceCube(0.8, 0.5));
 	}
 }

@@ -5,16 +5,16 @@ import org.usfirst.frc5577.GearsBot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class UpLift extends Command {
-	
+
 	private double speed = 0;
 	private double time = 3;
-	
+
 	public UpLift(double speed) {
 		requires(Robot.lift);
 		this.speed = speed;
 		this.time = 0;
 	}
-	
+
 	public UpLift(double speed, double time) {
 		this(speed);
 		this.time = time;
@@ -37,7 +37,7 @@ public class UpLift extends Command {
 	protected boolean isFinished() {
 		return isTimedOut();
 	}
-	
+
 	@Override
 	protected void end() {
 		System.out.println("UpLift command has ended!");

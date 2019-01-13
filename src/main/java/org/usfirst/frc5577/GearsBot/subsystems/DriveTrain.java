@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
-
 /**
  *
  */
@@ -22,74 +21,70 @@ public class DriveTrain extends Subsystem {
     PIDController rightWheelControl = new PIDController(0.1, 0, 0, rightWheelEncoder, rightMotor);
     SpeedControllerGroup leftmotor = RobotMap.driveTrainLeftMotor;
     SpeedControllerGroup rightmotor = RobotMap.driveTrainRightMotor;
-    //controls speed of chassis and the Value of the Decimal is a percentage ex. 0.5 = 50%
+    // controls speed of chassis and the Value of the Decimal is a percentage ex.
+    // 0.5 = 50%
     double driveTrainSpeed = 1.0;
-    
+
     public DriveTrain() {
-        
+
     }
 
-    
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-     public void initDefaultCommand() {
+    public void initDefaultCommand() {
         setDefaultCommand(new DriveWithJoysticks());
-        }
-    
+    }
+
     /*
-    public void arcadeDrive(Joystick stick){
-    	robotDrive.arcadeDrive(stick);
-    }*/
-     
-     public void driveTrainForwardWithDistance(double distance) {
-    	 leftWheelEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
-         leftWheelControl.enable();
-         rightWheelEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
-         rightWheelControl.enable();
-    	 leftWheelControl.setSetpoint(distance);
-    	 rightWheelControl.setSetpoint(distance);
-    	 robotDrive.arcadeDrive(0.25, 0); 
-     }
-    
+     * public void arcadeDrive(Joystick stick){ robotDrive.arcadeDrive(stick); }
+     */
+
+    public void driveTrainForwardWithDistance(double distance) {
+        leftWheelEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
+        leftWheelControl.enable();
+        rightWheelEncoder.setPIDSourceType(PIDSourceType.kDisplacement);
+        rightWheelControl.enable();
+        leftWheelControl.setSetpoint(distance);
+        rightWheelControl.setSetpoint(distance);
+        robotDrive.arcadeDrive(0.25, 0);
+    }
+
     public void driveTrainFoward(double speed) {
-    	Timer.delay(0.01);
-    	 leftWheelControl.setSetpoint(2);
-    	 rightWheelControl.setSetpoint(2);
-    	robotDrive.arcadeDrive(speed, 0); 
+        Timer.delay(0.01);
+        leftWheelControl.setSetpoint(2);
+        rightWheelControl.setSetpoint(2);
+        robotDrive.arcadeDrive(speed, 0);
     }
-    
+
     public void driveTrainBackward(double speed) {
-    	Timer.delay(0.01);
-    	robotDrive.arcadeDrive(-speed, 0); 
+        Timer.delay(0.01);
+        robotDrive.arcadeDrive(-speed, 0);
     }
 
-    
-    
     public void turn(double rotateValue) {
-    	robotDrive.arcadeDrive(0.2, rotateValue);
-    	Timer.delay(0.01);
+        robotDrive.arcadeDrive(0.2, rotateValue);
+        Timer.delay(0.01);
     }
-    
-    public void takeJoystickInputs(Joystick xBoxController) {
-    	robotDrive.setSafetyEnabled(true);
-    	
-    	/* The two options for driving are tank drive and arcade mode. 
-    	 * To choose tank you comment arcade out (i.e. //robotDrive.arcadeDrive...)
-    	 * To choose arcade you comment tank out (i.e. //robotDrive.tankDrive...)
-    	 * 
-    	 */
-//    	robotDrive.arcadeDrive(xBoxCont);
-    	
-    	robotDrive.arcadeDrive(xBoxController.getRawAxis(Robot.oi.LEFT_AXIS_Y)*driveTrainSpeed,
-    			-xBoxController.getRawAxis(Robot.oi.LEFT_AXIS_X)*driveTrainSpeed,
-    			true);  
-    	Timer.delay(0.01);
-    }
-    
-    public void stop() {
-    	robotDrive.arcadeDrive(0, 0);
-    }
-    
-}
 
+    public void takeJoystickInputs(Joystick xBoxController) {
+        robotDrive.setSafetyEnabled(true);
+
+        /*
+         * The two options for driving are tank drive and arcade mode. To choose tank
+         * you comment arcade out (i.e. //robotDrive.arcadeDrive...) To choose arcade
+         * you comment tank out (i.e. //robotDrive.tankDrive...)
+         * 
+         */
+        // robotDrive.arcadeDrive(xBoxCont);
+
+        robotDrive.arcadeDrive(xBoxController.getRawAxis(Robot.oi.LEFT_AXIS_Y) * driveTrainSpeed,
+                -xBoxController.getRawAxis(Robot.oi.LEFT_AXIS_X) * driveTrainSpeed, true);
+        Timer.delay(0.01);
+    }
+
+    public void stop() {
+        robotDrive.arcadeDrive(0, 0);
+    }
+
+}

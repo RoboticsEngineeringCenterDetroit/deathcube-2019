@@ -5,13 +5,13 @@ import org.usfirst.frc5577.GearsBot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class CollectCube extends Command {
-	
+
 	private double speed = 0.8;
 
 	public CollectCube() {
 		this(0.8);
 	}
-	
+
 	public CollectCube(double speed) {
 		requires(Robot.intake);
 		this.speed = speed;

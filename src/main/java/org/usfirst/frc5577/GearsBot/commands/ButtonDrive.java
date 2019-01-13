@@ -7,8 +7,8 @@ import org.usfirst.frc5577.GearsBot.Robot;
  *
  */
 public class ButtonDrive extends Command {
-	
-	double speed;
+
+    double speed;
 
     public ButtonDrive(double speed) {
         requires(Robot.driveTrain);
@@ -21,22 +21,22 @@ public class ButtonDrive extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.driveTrainFoward(speed);
+        Robot.driveTrain.driveTrainFoward(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return isTimedOut(); 
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveTrain.driveTrainFoward(0.0);
+        Robot.driveTrain.driveTrainFoward(0.0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
+        end();
     }
 }

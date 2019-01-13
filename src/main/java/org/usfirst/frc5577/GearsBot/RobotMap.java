@@ -37,14 +37,14 @@ public class RobotMap {
 	public static DoubleSolenoid clawSwitch;
 
 	static void init() {
-		
+
 		victorSPX1 = new WPI_VictorSPX(1);
 		victorSPX2 = new WPI_VictorSPX(2);
 		victorSPX3 = new WPI_VictorSPX(3);
 		victorSPX4 = new WPI_VictorSPX(4);
 		talonSRX5 = new TalonSRX(5);
 		talonSRX6 = new TalonSRX(6);
-	    talonSRX7 = new TalonSRX(7);
+		talonSRX7 = new TalonSRX(7);
 		talonSRX8 = new TalonSRX(8);
 		talonSRX9 = new TalonSRX(9);
 
@@ -62,7 +62,7 @@ public class RobotMap {
 		driveTrainSwitch = new DoubleSolenoid(0, 1);
 		driveTrainSwitch.set(DoubleSolenoid.Value.kOff);
 		clawSwitch = new DoubleSolenoid(2, 3);
-	    clawSwitch.set(DoubleSolenoid.Value.kOff);
+		clawSwitch.set(DoubleSolenoid.Value.kOff);
 
 		leftWheelEncoder = new Encoder(2, 3, false, Encoder.EncodingType.k4X);
 		leftWheelEncoder.setDistancePerPulse(.147262);

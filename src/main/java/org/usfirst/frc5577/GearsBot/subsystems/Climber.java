@@ -9,26 +9,25 @@ public class Climber extends Subsystem {
 
     public Climber() {
     }
-    
+
     public void initDefaultCommand() {
 
     }
-   
-    public void moveArm(double velocity){
-//    	RobotMap.talonSRX5.set(ControlMode.PercentOutput, velocity);
-    }
-    
-    public void upElevator(double speed){	
-//    	RobotMap.talonSRX5.set(ControlMode.PercentOutput, speed); 
-    }
-    
-    public void downElevator(double speed){
-//    	RobotMap.talonSRX5.set(ControlMode.PercentOutput, -speed);
-    }
-    
-    public void stop(){
-//    	RobotMap.talonSRX5.set(ControlMode.PercentOutput, 0); 
+
+    public void moveArm(double velocity) {
+        // RobotMap.talonSRX5.set(ControlMode.PercentOutput, velocity);
     }
 
+    public void upElevator(double speed) {
+        // RobotMap.talonSRX5.set(ControlMode.PercentOutput, speed);
+    }
+
+    public void downElevator(double speed) {
+        // RobotMap.talonSRX5.set(ControlMode.PercentOutput, -speed);
+    }
+
+    public void stop() {
+        // RobotMap.talonSRX5.set(ControlMode.PercentOutput, 0);
+    }
 
 }
